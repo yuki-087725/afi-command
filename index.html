@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#05070d">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="AFI Command">
+  <meta name="robots" content="noindex, nofollow">
+  <title>AFI Command</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon.svg">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><use href="#i-logo"/></svg>
+      <div>
+        <div class="brand-name">AFI COMMAND</div>
+        <div class="brand-sub" id="source-label">—</div>
+      </div>
+    </div>
+    <button class="fresh" id="fresh" data-action="refresh" aria-label="再読み込み">
+      <span class="fresh-dot"></span><span id="fresh-text">読み込み中</span>
+      <svg class="ico ico-sm spin-target" aria-hidden="true"><use href="#i-refresh"/></svg>
+    </button>
+  </header>
+
+  <div class="ptr" id="ptr" aria-hidden="true"><svg class="ico" ><use href="#i-refresh"/></svg></div>
+  <main id="view" class="view" tabindex="-1"></main>
+
+  <nav class="tabbar" id="tabbar" aria-label="画面">
+    <a href="#/overview" data-tab="overview"><svg class="ico"><use href="#i-overview"/></svg><span>概要</span></a>
+    <a href="#/queue" data-tab="queue"><svg class="ico"><use href="#i-queue"/></svg><span>キュー</span></a>
+    <a href="#/bottlenecks" data-tab="bottlenecks"><svg class="ico"><use href="#i-block"/></svg><span>詰まり</span><b class="tab-badge" id="badge-bn" hidden></b></a>
+    <a href="#/log" data-tab="log"><svg class="ico"><use href="#i-log"/></svg><span>ログ</span><b class="tab-badge err" id="badge-err" hidden></b></a>
+    <a href="#/settings" data-tab="settings"><svg class="ico"><use href="#i-gear"/></svg><span>設定</span></a>
+  </nav>
+
+  <div class="sheet-backdrop" id="sheet-backdrop" data-action="close-sheet" hidden></div>
+  <section class="sheet" id="sheet" role="dialog" aria-modal="true" hidden>
+    <div class="sheet-grip" data-action="close-sheet"></div>
+    <div class="sheet-body" id="sheet-body"></div>
+  </section>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-logo" viewBox="0 0 32 32"><path d="M16 2 29 9.5v13L16 30 3 22.5v-13Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 21 16 9l6 12M12.4 16.6h7.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-overview" viewBox="0 0 24 24"><path d="M4 13h6V4H4zm10 7h6v-9h-6zM4 20h6v-4H4zm10-11h6V4h-6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-queue" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="19" cy="18" r="2" fill="currentColor"/></symbol>
+    <symbol id="i-block" viewBox="0 0 24 24"><path d="M3 12h5l2-3 4 6 2-3h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".45"/></symbol>
+    <symbol id="i-log" viewBox="0 0 24 24"><path d="M7 4v16M7 7h10M7 12h7M7 17h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="7" cy="7" r="1.6" fill="currentColor"/><circle cx="7" cy="12" r="1.6" fill="currentColor"/><circle cx="7" cy="17" r="1.6" fill="currentColor"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.8v2.4M12 18.8v2.4M2.8 12h2.4M18.8 12h2.4M5.5 5.5l1.7 1.7M16.8 16.8l1.7 1.7M5.5 18.5l1.7-1.7M16.8 7.2l1.7-1.7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v5h-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5Z" fill="currentColor"/></symbol>
+  </svg>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

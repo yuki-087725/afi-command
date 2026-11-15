@@ -1,0 +1,865 @@
+{
+ "schema": "afi-command/1",
+ "generated_at": "2026-11-15T07:52:00+09:00",
+ "bottlenecks": [
+  {
+   "code": "spec_review",
+   "label": "仕様が確認待ち",
+   "hint": "data/specs/<サイト>/_review/ の台帳を確かめ、review_notes を消して 1 つ上に移す"
+  },
+  {
+   "code": "no_spec",
+   "label": "仕様の台帳が無い",
+   "hint": "python -m admin.queue add --url でメーカーページを付けるか、specs_generator で台帳を作る"
+  },
+  {
+   "code": "charging_preset",
+   "label": "比べる機器（preset）が無い",
+   "hint": "device の台帳に preset: true の機器を足し、充電器の combos を確認する"
+  },
+  {
+   "code": "layout_dims",
+   "label": "寸法が足りない",
+   "hint": "ケージの台帳の w_cm / d_cm を確認する"
+  },
+  {
+   "code": "compare_peers",
+   "label": "同じ種類の製品が足りない",
+   "hint": "同じ kind の製品の台帳をもう 1 つ以上作る"
+  },
+  {
+   "code": "price_history",
+   "label": "価格の記録を待っている",
+   "hint": "daily が毎日記録する。QUEUE_MIN_PRICE_POINTS を下げれば待たない"
+  },
+  {
+   "code": "stale",
+   "label": "子から知らせが無い",
+   "hint": "子の gate_candidates.json が更新されているか確認する"
+  },
+  {
+   "code": "other",
+   "label": "そのほか",
+   "hint": "理由の文を確認する"
+  }
+ ],
+ "sites": [
+  {
+   "id": "afi",
+   "name": "gadget-pome",
+   "domain": "gadget-pome.com",
+   "repo": "",
+   "niche": "PC・周辺機器",
+   "queue": {
+    "updated": "2026-11-15T07:47:00+09:00",
+    "counts": {
+     "pending": 6,
+     "ready": 2,
+     "published": 1,
+     "expired": 1
+    },
+    "watch": 0
+   },
+   "items": [
+    {
+     "key": "B0DEMO0001",
+     "title": "Anker Zolo Charger (70W, 4 Ports) USB-C 急速充電器",
+     "status": "ready",
+     "source": "child",
+     "category": "",
+     "kind": "",
+     "url": "",
+     "specs": [
+      "Anker Zolo Charger (70W, 4 Ports)"
+     ],
+     "kinds": [
+      "charging",
+      "price"
+     ],
+     "reasons": [],
+     "bottleneck": "",
+     "spec_result": "",
+     "heading": "この充電器で同時に充電できる組み合わせ",
+     "added": "2026-11-06T07:52:00+09:00",
+     "seen": "2026-11-15T06:52:00+09:00",
+     "checked": "2026-11-15T07:47:00+09:00",
+     "ready_since": "2026-11-14T04:52:00+09:00",
+     "published": "",
+     "post_id": null
+    },
+    {
+     "key": "B0DEMO0002",
+     "title": "UGREEN Nexode 100W 4ポート 充電器",
+     "status": "ready",
+     "source": "child",
+     "category": "",
+     "kind": "",
+     "url": "",
+     "specs": [
+      "UGREEN Nexode 100W"
+     ],
+     "kinds": [
+      "charging"
+     ],
+     "reasons": [],
+     "bottleneck": "",
+     "spec_result": "",
+     "heading": "この充電器で同時に充電できる組み合わせ",
+     "added": "2026-11-06T07:52:00+09:00",
+     "seen": "2026-11-15T06:52:00+09:00",
+     "checked": "2026-11-15T07:47:00+09:00",
+     "ready_since": "2026-11-15T02:52:00+09:00",
+     "published": "",
+     "post_id": null
+    },
+    {
+     "key": "B0DEMO0003",
+     "title": "CIO NovaPort TRIO 65W",
+     "status": "pending",
+     "source": "child",
+     "category": "",
+     "kind": "",
+     "url": "",
+     "specs": [],
+     "kinds": [],
+     "reasons": [
+      "仕様が台帳（data/specs/afi/）にありません。python -m admin.queue add で URL を付けると、次の refresh で作ります"
+     ],
+     "bottleneck": "no_spec",
+     "spec_result": "",
+     "heading": "",
+     "added": "2026-11-06T07:52:00+09:00",
+     "seen": "2026-11-15T06:52:00+09:00",
+     "checked": "2026-11-15T07:47:00+09:00",
+     "ready_since": "",
+     "published": "",
+     "post_id": null
+    },
+    {
+     "key": "B0DEMO0004",
+     "title": "Belkin BoostCharge Pro 3-in-1",
+     "status": "pending",
+     "source": "child",
+     "category": "",
+     "kind": "",
+     "url": "",
+     "specs": [],
+     "kinds": [],
+     "reasons": [
+      "仕様が台帳（data/specs/afi/）にありません。python -m admin.queue add で URL を付けると、次の refresh で作ります"
+     ],
+     "bottleneck": "no_spec",
+     "spec_result": "",
+     "heading": "",
+     "added": "2026-11-06T07:52:00+09:00",
+     "seen": "2026-11-15T06:52:00+09:00",
+     "checked": "2026-11-15T07:47:00+09:00",
+     "ready_since": "",
+     "published": "",
+     "post_id": null
+    },
+    {
+     "key": "B0DEMO0005",
+     "title": "エレコム USB-C 充電器 45W",
+     "status": "pending",
+     "source": "child",
+     "category": "",
+     "kind": "",
+     "url": "",
+     "specs": [],
+     "kinds": [],
+     "reasons": [
+      "仕様が台帳（data/specs/afi/）にありません。python -m admin.queue add で URL を付けると、次の refresh で作ります"
+     ],
+     "bottleneck": "no_spec",
+     "spec_result": "",
+     "heading": "",
+     "added": "2026-11-06T07:52:00+09:00",
+     "seen": "2026-11-15T06:52:00+09:00",
+     "checked": "2026-11-15T07:47:00+09:00",
+     "ready_since": "",
+     "published": "",
+     "post_id": null
+    },
+    {
+     "key": "B0DEMO0006",
+     "title": "Anker Nano Charger 30W",
+     "status": "pending",
+     "source": "child",
+     "category": "",
+     "kind": "",
+     "url": "",
+     "specs": [
+      "Anker Nano Charger 30W"
+     ],
+     "kinds": [],
+     "reasons": [
+      "Anker Nano Charger 30W: 組み合わせ表を作れません（比べる機器 device で preset: true が台帳に要る。同時使用の配分 combos も確認）"
+     ],
+     "bottleneck": "charging_preset",
+     "spec_result": "",
+     "heading": "",
+     "added": "2026-11-06T07:52:00+09:00",
+     "seen": "2026-11-15T06:52:00+09:00",
+     "checked": "2026-11-15T07:47:00+09:00",
+     "ready_since": "",
+     "published": "",
+     "post_id": null
+    },
+    {
+     "key": "manual:dell-s2725qs",
+     "title": "Dell S2725QS 27インチ 4K モニター",
+     "status": "pending",
+     "source": "manual",
+     "category": "",
+     "kind": "monitor",
+     "url": "https://www.dell.com/",
+     "specs": [
+      "Dell S2725QS"
+     ],
+     "kinds": [],
+     "reasons": [
+      "Dell S2725QS: 仕様の比較表には、同じ種類（monitor）の製品が記事に 2 つ以上要ります"
+     ],
+     "bottleneck": "compare_peers",
+     "spec_result": "",
+     "heading": "",
+     "added": "2026-11-06T07:52:00+09:00",
+     "seen": "2026-11-15T06:52:00+09:00",
+     "checked": "2026-11-15T07:47:00+09:00",
+     "ready_since": "",
+     "published": "",
+     "post_id": null
+    },
+    {
+     "key": "manual:lg-27up850",
+     "title": "LG 27UP850-W",
+     "status": "pending",
+     "source": "manual",
+     "category": "",
+     "kind": "monitor",
+     "url": "",
+     "specs": [],
+     "kinds": [],
+     "reasons": [
+      "仕様が台帳（data/specs/afi/）にありません（作った仕様は確認待ち。_review/ を確かめて 1 つ上に移してください）"
+     ],
+     "bottleneck": "spec_review",
+     "spec_result": "確認待ち（_review/）: data/specs/afi/_review/monitor-lg-27up850.json",
+     "heading": "",
+     "added": "2026-11-06T07:52:00+09:00",
+     "seen": "2026-11-15T06:52:00+09:00",
+     "checked": "2026-11-15T07:47:00+09:00",
+     "ready_since": "",
+     "published": "",
+     "post_id": null
+    },
+    {
+     "key": "B0DEMO0009",
+     "title": "Satechi 165W USB-C 4ポート",
+     "status": "published",
+     "source": "child",
+     "category": "",
+     "kind": "",
+     "url": "",
+     "specs": [
+      "Satechi 165W"
+     ],
+     "kinds": [
+      "charging"
+     ],
+     "reasons": [],
+     "bottleneck": "",
+     "spec_result": "",
+     "heading": "",
+     "added": "2026-11-06T07:52:00+09:00",
+     "seen": "2026-11-15T06:52:00+09:00",
+     "checked": "2026-11-15T07:47:00+09:00",
+     "ready_since": "",
+     "published": "2026-11-12T05:52:00+09:00",
+     "post_id": 402
+    },
+    {
+     "key": "B0DEMO0010",
+     "title": "Baseus GaN5 Pro 65W",
+     "status": "expired",
+     "source": "child",
+     "category": "",
+     "kind": "",
+     "url": "",
+     "specs": [],
+     "kinds": [],
+     "reasons": [
+      "子から 14 日以上知らせが無い"
+     ],
+     "bottleneck": "",
+     "spec_result": "",
+     "heading": "",
+     "added": "2026-11-06T07:52:00+09:00",
+     "seen": "2026-11-15T06:52:00+09:00",
+     "checked": "2026-11-15T07:47:00+09:00",
+     "ready_since": "",
+     "published": "",
+     "post_id": null
+    }
+   ],
+   "gate": {
+    "at": "2026-11-15T05:52:00+09:00",
+    "status": "ready",
+    "ready": 1,
+    "pending": 2,
+    "unmatched": 214,
+    "waiting": [
+     "Satechi 165W"
+    ],
+    "reasons": []
+   },
+   "rewrites": {
+    "counts": {
+     "failed": 1,
+     "pr_created": 2
+    },
+    "posts": [
+     {
+      "post_id": 112,
+      "status": "failed",
+      "stage": "rewrite",
+      "keyword": "",
+      "pr_url": "",
+      "attempts": 0,
+      "error_kind": "transient",
+      "last_error": "Gemini 503: The model is overloaded（次回の run で再挑戦）",
+      "updated": "2026-11-15T07:48:00+09:00",
+      "finished": ""
+     },
+     {
+      "post_id": 103,
+      "status": "pr_created",
+      "stage": "pr",
+      "keyword": "ルーター おすすめ",
+      "pr_url": "https://github.com/",
+      "attempts": 0,
+      "error_kind": "",
+      "last_error": "",
+      "updated": "2026-11-15T07:44:00+09:00",
+      "finished": "2026-11-15T07:44:00+09:00"
+     },
+     {
+      "post_id": 84,
+      "status": "pr_created",
+      "stage": "pr",
+      "keyword": "充電器 おすすめ",
+      "pr_url": "https://github.com/",
+      "attempts": 0,
+      "error_kind": "",
+      "last_error": "",
+      "updated": "2026-11-11T07:52:00+09:00",
+      "finished": "2026-11-11T07:52:00+09:00"
+     }
+    ]
+   },
+   "priority": {
+    "at": "2026-11-15T06:52:00+09:00",
+    "total": 4,
+    "eligible": 3,
+    "top": [
+     {
+      "post_id": 138,
+      "keyword": "ルーター 比較",
+      "title": "",
+      "score": 63.5,
+      "killer": true,
+      "stage": "",
+      "eligible": true,
+      "why": "キラーページ / あと一歩の順位（7.4 位）"
+     },
+     {
+      "post_id": 123,
+      "keyword": "大学生 ノートパソコン おすすめ",
+      "title": "",
+      "score": 55.2,
+      "killer": true,
+      "stage": "",
+      "eligible": true,
+      "why": "キラーページ / 取りこぼしクリック 12"
+     },
+     {
+      "post_id": 84,
+      "keyword": "充電器 おすすめ",
+      "title": "",
+      "score": 40,
+      "killer": true,
+      "stage": "",
+      "eligible": false,
+      "why": "前回のリライトから 4 日（14 日あける）"
+     },
+     {
+      "post_id": 210,
+      "keyword": "USB-C ケーブル 選び方",
+      "title": "",
+      "score": 22.1,
+      "killer": false,
+      "stage": "",
+      "eligible": true,
+      "why": "導線の取りこぼし"
+     }
+    ]
+   },
+   "ledger": {
+    "specs": 5,
+    "review": 1
+   }
+  },
+  {
+   "id": "pet",
+   "name": "paw-navi",
+   "domain": "paw-navi.com",
+   "repo": "",
+   "niche": "犬用品",
+   "queue": {
+    "updated": "2026-11-15T07:47:00+09:00",
+    "counts": {
+     "pending": 3,
+     "ready": 1,
+     "published": 1,
+     "expired": 0
+    },
+    "watch": 0
+   },
+   "items": [
+    {
+     "key": "pet-cage-01",
+     "title": "アイリスオーヤマ ペットサークル P-SPS-960",
+     "status": "ready",
+     "source": "child",
+     "category": "dog-cage",
+     "kind": "",
+     "url": "",
+     "specs": [
+      "P-SPS-960"
+     ],
+     "kinds": [
+      "layout"
+     ],
+     "reasons": [],
+     "bottleneck": "",
+     "spec_result": "",
+     "heading": "部屋に置いたときの通路幅",
+     "added": "2026-11-06T07:52:00+09:00",
+     "seen": "2026-11-15T06:52:00+09:00",
+     "checked": "2026-11-15T07:47:00+09:00",
+     "ready_since": "2026-11-13T06:52:00+09:00",
+     "published": "",
+     "post_id": null
+    },
+    {
+     "key": "pet-cage-02",
+     "title": "リッチェル ペットサークル 90-60",
+     "status": "pending",
+     "source": "child",
+     "category": "dog-cage",
+     "kind": "",
+     "url": "",
+     "specs": [
+      "リッチェル 90-60"
+     ],
+     "kinds": [],
+     "reasons": [
+      "リッチェル 90-60: 通路幅を計算できません（幅・奥行 w_cm / d_cm を確認）"
+     ],
+     "bottleneck": "layout_dims",
+     "spec_result": "",
+     "heading": "",
+     "added": "2026-11-06T07:52:00+09:00",
+     "seen": "2026-11-15T06:52:00+09:00",
+     "checked": "2026-11-15T07:47:00+09:00",
+     "ready_since": "",
+     "published": "",
+     "post_id": null
+    },
+    {
+     "key": "pet-cage-03",
+     "title": "ボンビアルコン ウッドワンサークル",
+     "status": "pending",
+     "source": "child",
+     "category": "dog-cage",
+     "kind": "",
+     "url": "",
+     "specs": [],
+     "kinds": [],
+     "reasons": [
+      "仕様が台帳（data/specs/pet/）にありません。python -m admin.queue add で URL を付けると、次の refresh で作ります"
+     ],
+     "bottleneck": "no_spec",
+     "spec_result": "",
+     "heading": "",
+     "added": "2026-11-06T07:52:00+09:00",
+     "seen": "2026-11-15T06:52:00+09:00",
+     "checked": "2026-11-15T07:47:00+09:00",
+     "ready_since": "",
+     "published": "",
+     "post_id": null
+    },
+    {
+     "key": "pet-cage-04",
+     "title": "山善 木製ペットサークル",
+     "status": "pending",
+     "source": "child",
+     "category": "dog-cage",
+     "kind": "",
+     "url": "",
+     "specs": [
+      "山善 木製ペットサークル"
+     ],
+     "kinds": [
+      "layout"
+     ],
+     "reasons": [
+      "価格の記録がたまるのを待っています（QUEUE_MIN_PRICE_POINTS=5）"
+     ],
+     "bottleneck": "price_history",
+     "spec_result": "",
+     "heading": "",
+     "added": "2026-11-06T07:52:00+09:00",
+     "seen": "2026-11-15T06:52:00+09:00",
+     "checked": "2026-11-15T07:47:00+09:00",
+     "ready_since": "",
+     "published": "",
+     "post_id": null
+    },
+    {
+     "key": "pet-cage-05",
+     "title": "アイリスオーヤマ ウッディサークル",
+     "status": "published",
+     "source": "child",
+     "category": "",
+     "kind": "",
+     "url": "",
+     "specs": [
+      "ウッディサークル"
+     ],
+     "kinds": [
+      "layout"
+     ],
+     "reasons": [],
+     "bottleneck": "",
+     "spec_result": "",
+     "heading": "",
+     "added": "2026-11-06T07:52:00+09:00",
+     "seen": "2026-11-15T06:52:00+09:00",
+     "checked": "2026-11-15T07:47:00+09:00",
+     "ready_since": "",
+     "published": "2026-11-10T07:52:00+09:00",
+     "post_id": 88
+    }
+   ],
+   "gate": {
+    "at": "2026-11-15T04:52:00+09:00",
+    "status": "pending",
+    "ready": 0,
+    "pending": 1,
+    "unmatched": 37,
+    "waiting": [],
+    "reasons": [
+     "リッチェル 90-60: 通路幅を計算できません"
+    ]
+   },
+   "rewrites": {
+    "counts": {
+     "pr_created": 1
+    },
+    "posts": [
+     {
+      "post_id": 13,
+      "status": "pr_created",
+      "stage": "pr",
+      "keyword": "犬 ハーネス おすすめ",
+      "pr_url": "https://github.com/",
+      "attempts": 0,
+      "error_kind": "",
+      "last_error": "",
+      "updated": "2026-11-13T07:52:00+09:00",
+      "finished": ""
+     }
+    ]
+   },
+   "priority": {
+    "at": "2026-11-15T06:52:00+09:00",
+    "total": 1,
+    "eligible": 1,
+    "top": [
+     {
+      "post_id": 21,
+      "keyword": "犬 ケージ おすすめ",
+      "title": "",
+      "score": 48.0,
+      "killer": true,
+      "stage": "",
+      "eligible": true,
+      "why": "キラーページ / 伸ばせる比較クエリ"
+     }
+    ]
+   },
+   "ledger": {
+    "specs": 3,
+    "review": 0
+   }
+  }
+ ],
+ "daily": [
+  {
+   "at": "2026-11-15T07:30:00+09:00",
+   "limit": 2,
+   "carry": 1,
+   "picked": [
+    {
+     "site": "afi",
+     "post_id": "103",
+     "keyword": "ルーター おすすめ"
+    },
+    {
+     "site": "afi",
+     "post_id": "112",
+     "keyword": "電子書籍リーダー おすすめ"
+    }
+   ]
+  },
+  {
+   "at": "2026-11-14T07:31:00+09:00",
+   "limit": 2,
+   "carry": 0,
+   "picked": []
+  },
+  {
+   "at": "2026-11-13T07:32:00+09:00",
+   "limit": 2,
+   "carry": 0,
+   "picked": []
+  },
+  {
+   "at": "2026-11-12T07:33:00+09:00",
+   "limit": 2,
+   "carry": 0,
+   "picked": [
+    {
+     "site": "afi",
+     "post_id": "84",
+     "keyword": "充電器 おすすめ"
+    }
+   ]
+  }
+ ],
+ "timeline": [
+  {
+   "at": "2026-11-15T07:48:00+09:00",
+   "site": "afi",
+   "kind": "rewrite",
+   "level": "error",
+   "title": "#112 リライト失敗（rewrite）",
+   "detail": "Gemini 503: The model is overloaded（次回の run で再挑戦）",
+   "link": "",
+   "post": "112"
+  },
+  {
+   "at": "2026-11-15T07:44:00+09:00",
+   "site": "afi",
+   "kind": "rewrite",
+   "level": "ok",
+   "title": "#103 リライト PR",
+   "detail": "ルーター おすすめ",
+   "link": "https://github.com/",
+   "post": "103"
+  },
+  {
+   "at": "2026-11-15T07:30:00+09:00",
+   "site": "",
+   "kind": "daily",
+   "level": "ok",
+   "title": "daily 実行（2 本を選択）",
+   "detail": "afi #103「ルーター おすすめ」、afi #112「電子書籍リーダー おすすめ」",
+   "link": ""
+  },
+  {
+   "at": "2026-11-15T06:52:00+09:00",
+   "site": "afi",
+   "kind": "master_ops",
+   "level": "ok",
+   "title": "てこ入れ（report）: ok",
+   "detail": "4.1 秒",
+   "link": ""
+  },
+  {
+   "at": "2026-11-15T06:52:00+09:00",
+   "site": "pet",
+   "kind": "master_ops",
+   "level": "ok",
+   "title": "てこ入れ（report）: ok",
+   "detail": "0.9 秒",
+   "link": ""
+  },
+  {
+   "at": "2026-11-15T05:52:00+09:00",
+   "site": "afi",
+   "kind": "gate",
+   "level": "ok",
+   "title": "Publish Gate: ready（Ready 1 / 台帳に無い候補 214）",
+   "detail": "",
+   "link": ""
+  },
+  {
+   "at": "2026-11-15T04:52:00+09:00",
+   "site": "pet",
+   "kind": "gate",
+   "level": "warn",
+   "title": "Publish Gate: pending（Ready 0 / 台帳に無い候補 37）",
+   "detail": "リッチェル 90-60: 通路幅を計算できません",
+   "link": ""
+  },
+  {
+   "at": "2026-11-15T02:52:00+09:00",
+   "site": "afi",
+   "kind": "queue",
+   "level": "ok",
+   "title": "Ready: UGREEN Nexode 100W 4ポート 充電器",
+   "detail": "子に渡す候補になりました",
+   "link": ""
+  },
+  {
+   "at": "2026-11-14T07:31:00+09:00",
+   "site": "",
+   "kind": "daily",
+   "level": "info",
+   "title": "daily 実行（0 本を選択）",
+   "detail": "今日リライトできる記事はありませんでした",
+   "link": ""
+  },
+  {
+   "at": "2026-11-14T06:52:00+09:00",
+   "site": "afi",
+   "kind": "master_ops",
+   "level": "ok",
+   "title": "てこ入れ（report）: ok",
+   "detail": "4.1 秒",
+   "link": ""
+  },
+  {
+   "at": "2026-11-14T06:52:00+09:00",
+   "site": "pet",
+   "kind": "master_ops",
+   "level": "ok",
+   "title": "てこ入れ（report）: ok",
+   "detail": "0.9 秒",
+   "link": ""
+  },
+  {
+   "at": "2026-11-14T04:52:00+09:00",
+   "site": "afi",
+   "kind": "queue",
+   "level": "ok",
+   "title": "Ready: Anker Zolo Charger (70W, 4 Ports) USB-C ",
+   "detail": "子に渡す候補になりました",
+   "link": ""
+  },
+  {
+   "at": "2026-11-13T07:52:00+09:00",
+   "site": "pet",
+   "kind": "rewrite",
+   "level": "ok",
+   "title": "#13 リライト PR",
+   "detail": "犬 ハーネス おすすめ",
+   "link": "https://github.com/",
+   "post": "13"
+  },
+  {
+   "at": "2026-11-13T07:32:00+09:00",
+   "site": "",
+   "kind": "daily",
+   "level": "info",
+   "title": "daily 実行（0 本を選択）",
+   "detail": "今日リライトできる記事はありませんでした",
+   "link": ""
+  },
+  {
+   "at": "2026-11-13T06:52:00+09:00",
+   "site": "pet",
+   "kind": "queue",
+   "level": "ok",
+   "title": "Ready: アイリスオーヤマ ペットサークル P-SPS-960",
+   "detail": "子に渡す候補になりました",
+   "link": ""
+  },
+  {
+   "at": "2026-11-13T06:52:00+09:00",
+   "site": "afi",
+   "kind": "master_ops",
+   "level": "ok",
+   "title": "てこ入れ（report）: ok",
+   "detail": "4.1 秒",
+   "link": ""
+  },
+  {
+   "at": "2026-11-13T06:52:00+09:00",
+   "site": "pet",
+   "kind": "master_ops",
+   "level": "error",
+   "title": "てこ入れ（report）: failed",
+   "detail": "終了コード 1",
+   "link": ""
+  },
+  {
+   "at": "2026-11-12T07:33:00+09:00",
+   "site": "",
+   "kind": "daily",
+   "level": "ok",
+   "title": "daily 実行（1 本を選択）",
+   "detail": "afi #84「充電器 おすすめ」",
+   "link": ""
+  },
+  {
+   "at": "2026-11-12T05:52:00+09:00",
+   "site": "afi",
+   "kind": "queue",
+   "level": "ok",
+   "title": "公開: Satechi 165W USB-C 4ポート",
+   "detail": "記事 #402",
+   "link": ""
+  },
+  {
+   "at": "2026-11-11T07:52:00+09:00",
+   "site": "afi",
+   "kind": "rewrite",
+   "level": "ok",
+   "title": "#84 リライト PR",
+   "detail": "充電器 おすすめ",
+   "link": "https://github.com/",
+   "post": "84"
+  },
+  {
+   "at": "2026-11-10T07:52:00+09:00",
+   "site": "pet",
+   "kind": "queue",
+   "level": "ok",
+   "title": "公開: アイリスオーヤマ ウッディサークル",
+   "detail": "記事 #88",
+   "link": ""
+  },
+  {
+   "at": "2026-11-06T07:52:00+09:00",
+   "site": "afi",
+   "kind": "queue",
+   "level": "info",
+   "title": "候補を追加: Dell S2725QS 27インチ 4K モニター",
+   "detail": "",
+   "link": ""
+  },
+  {
+   "at": "2026-11-06T07:52:00+09:00",
+   "site": "afi",
+   "kind": "queue",
+   "level": "info",
+   "title": "候補を追加: LG 27UP850-W",
+   "detail": "",
+   "link": ""
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "AFI Command",
+  "short_name": "AFI Cmd",
+  "description": "afi_admin と afi / pet の投稿キュー・Publish Gate・daily の状況",
+  "start_url": "./#/overview",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#05070d",
+  "theme_color": "#05070d",
+  "lang": "ja",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
