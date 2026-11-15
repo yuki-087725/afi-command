@@ -96,6 +96,8 @@ async function refresh() {
     state.error = "";
   } catch (e) {
     state.error = e.message || String(e);
+    // 取得元を変えたあとに読めなければ、前の取得元（デモなど）の値は出さない
+    if (state.result && state.result.source !== state.settings.source) state.result = null;
     if (state.result) toast(`読めませんでした: ${state.error}`);
   } finally {
     state.loading = false;

@@ -1,5 +1,5 @@
 // 画面の部品だけをキャッシュする（データは毎回取りに行き、取れないときは app が前回の値を使う）
-const CACHE = "afic-shell-v1";
+const CACHE = "afic-shell-v2";
 const SHELL = ["./", "index.html", "css/app.css", "js/app.js", "js/sources.js", "js/views.js", "js/ui.js",
   "manifest.webmanifest", "icons/icon.svg", "demo/dashboard.json"];
 

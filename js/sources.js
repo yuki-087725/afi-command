@@ -106,7 +106,15 @@ export const SOURCES = {
       const raw = gh(s);
       raw.headers.Accept = "application/vnd.github.raw+json";
       const [snap, runs] = await Promise.all([
-        getJSON(file, raw),
+        getJSON(file, raw).catch((e) => {
+          // GitHub は「ファイルが無い」も「トークンで読めない」も 404 で返すので、両方を書く
+          if (e.status === 404) {
+            throw new Error(`${s.branch} ブランチに ${s.path} がありません（daily がまだ一度も作っていない）か、`
+              + `トークンで ${s.repo} を読めません。daily を一度実行し、トークンの対象リポジトリと Contents: Read を確認してください`);
+          }
+          if (e.status === 401) throw new Error("トークンが正しくないか、期限が切れています");
+          throw e;
+        }),
         getJSON(`${api}/actions/workflows/${encodeURIComponent(s.workflow)}/runs?per_page=12`, gh(s)).catch(() => null),
       ]);
       return { snapshot: validate(snap), runs: runs ? mapRuns(runs.workflow_runs || []) : null, label: `${s.repo}@${s.branch}` };
